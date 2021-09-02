@@ -22,19 +22,17 @@ public class User {
         createdAt = new Date();
     }
 
-    public String getName()
-    {
-        return name;
-    }
-
-    public String getId()
-    {
-        return id;
-    }
-
     public void update( UserDto userDto ) {
         name = userDto.getName();
         lastName = userDto.getLastName();
         email = userDto.getEmail();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
     }
 }

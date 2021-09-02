@@ -8,15 +8,15 @@ public class UserDto {
 
     public UserDto() { }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public String getEmail()
-    {
+    public String getEmail() {
         return email;
     }
 
-    public String getLastName()
-    {
+    public String getLastName() {
         return lastName;
     }
 }
