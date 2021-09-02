@@ -5,8 +5,8 @@ import org.ada.school.model.User;
 
 import java.util.List;
 
-public interface UserService
-{
+public interface UserService {
+
     User create( User user );
 
     User findById( String id );

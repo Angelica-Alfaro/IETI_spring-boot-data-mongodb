@@ -18,8 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping( "/user" )
-public class UserController
-{
+public class UserController {
 
     private final UserService userService;
 
@@ -36,27 +35,23 @@ public class UserController
     }
 
     @GetMapping( "/{id}" )
-    public ResponseEntity<User> findById( @PathVariable String id )
-    {
+    public ResponseEntity<User> findById( @PathVariable String id ) {
         return ResponseEntity.ok( userService.findById( id ) );
     }
 
 
     @PostMapping
-    public ResponseEntity<User> create( @RequestBody UserDto userDto )
-    {
+    public ResponseEntity<User> create( @RequestBody UserDto userDto ) {
         return ResponseEntity.ok( userService.create( new User( userDto ) ) );
     }
 
     @PutMapping( "/{id}" )
-    public ResponseEntity<User> update( @RequestBody UserDto userDto, @PathVariable String id )
-    {
+    public ResponseEntity<User> update( @RequestBody UserDto userDto, @PathVariable String id ) {
         return ResponseEntity.ok( userService.update( userDto, id ) );
     }
 
     @DeleteMapping( "/{id}" )
-    public ResponseEntity<Boolean> delete( @PathVariable String id )
-    {
+    public ResponseEntity<Boolean> delete( @PathVariable String id ) {
         return ResponseEntity.ok( userService.deleteById( id ) );
     }
 

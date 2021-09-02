@@ -9,25 +9,19 @@ import java.util.HashMap;
 import java.util.List;
 
 @Service
-public class UserServiceHashMap
-    implements UserService
-{
+public class UserServiceHashMap implements UserService {
 
     private final HashMap<String, User> usersMap = new HashMap<>();
 
-
     @Override
-    public User create( User user )
-    {
+    public User create( User user ) {
         usersMap.put( user.getId(), user );
         return user;
     }
 
     @Override
-    public User findById( String id )
-    {
-        if ( usersMap.containsKey( id ) )
-        {
+    public User findById( String id ) {
+        if ( usersMap.containsKey( id ) ) {
             return usersMap.get( id );
         }
         return null;
@@ -46,16 +40,13 @@ public class UserServiceHashMap
     }
 
     @Override
-    public User update( UserDto userDto, String id )
-    {
-        if ( usersMap.containsKey( id ) )
-        {
+    public User update( UserDto userDto, String id ) {
+        if ( usersMap.containsKey( id ) ) {
             User user = usersMap.get( id );
             user.update( userDto );
             return user;
         }
-        else
-        {
+        else {
             return null;
         }
     }
