@@ -1,29 +1,22 @@
 package org.ada.school.dto;
 
-public class UserDto
-{
+public class UserDto {
+
     String name;
-
     String email;
-
     String lastName;
 
-    public UserDto()
-    {
-    }
+    public UserDto() { }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public String getEmail()
-    {
+    public String getEmail() {
         return email;
     }
 
-    public String getLastName()
-    {
+    public String getLastName() {
         return lastName;
     }
 }

@@ -2,63 +2,60 @@ package org.ada.school.service;
 
 import org.ada.school.dto.UserDto;
 import org.ada.school.model.User;
+import org.ada.school.repository.UserDocument;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-@Service
-public class UserServiceHashMap
-    implements UserService
-{
+public class UserServiceHashMap implements UserService {
 
-    private final HashMap<String, User> usersMap = new HashMap<>();
-
+    private final HashMap<String, UserDocument> usersMap = new HashMap<>();
 
     @Override
-    public User create( User user )
-    {
+    public UserDocument create( UserDocument user ) {
         usersMap.put( user.getId(), user );
         return user;
     }
 
     @Override
-    public User findById( String id )
-    {
-        if ( usersMap.containsKey( id ) )
-        {
+    public UserDocument findById( String id ) {
+        if ( usersMap.containsKey( id ) ) {
             return usersMap.get( id );
         }
         return null;
     }
 
     @Override
-    public List<User> all()
-    {
+    public List<UserDocument> all() {
         return new ArrayList<>( usersMap.values() );
     }
 
     @Override
-    public boolean deleteById( String id )
-    {
+    public boolean deleteById( String id ) {
         return usersMap.remove( id ) != null;
     }
 
     @Override
-    public User update( UserDto userDto, String id )
-    {
-        if ( usersMap.containsKey( id ) )
-        {
-            User user = usersMap.get( id );
+    public UserDocument update( UserDto userDto, String id ) {
+        if ( usersMap.containsKey( id ) ) {
+            UserDocument user = usersMap.get( id );
             user.update( userDto );
             return user;
         }
-        else
-        {
+        else {
             return null;
         }
     }
+    @Override
+    public List<UserDocument> findByNameOrLastName(String queryText) {
+        return null;
+    }
 
-
+    @Override
+    public List<UserDocument> findByCreatedAtAfter(Date startDate) {
+        return null;
+    }
 }
