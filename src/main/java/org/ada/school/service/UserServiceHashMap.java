@@ -6,6 +6,7 @@ import org.ada.school.repository.UserDocument;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,6 +49,13 @@ public class UserServiceHashMap implements UserService {
             return null;
         }
     }
+    @Override
+    public List<UserDocument> findByNameOrLastName(String queryText) {
+        return null;
+    }
 
-
+    @Override
+    public List<UserDocument> findByCreatedAtAfter(Date startDate) {
+        return null;
+    }
 }

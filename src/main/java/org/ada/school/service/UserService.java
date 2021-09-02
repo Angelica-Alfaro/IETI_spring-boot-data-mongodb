@@ -4,6 +4,7 @@ import org.ada.school.dto.UserDto;
 import org.ada.school.model.User;
 import org.ada.school.repository.UserDocument;
 
+import java.util.Date;
 import java.util.List;
 
 public interface UserService {
@@ -17,4 +18,8 @@ public interface UserService {
     boolean deleteById( String id );
 
     UserDocument update( UserDto userDto, String id );
+
+    List<UserDocument> findByNameOrLastName(String queryText);
+
+    List<UserDocument> findByCreatedAtAfter(Date startDate);
 }

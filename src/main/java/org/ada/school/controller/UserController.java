@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -50,6 +53,18 @@ public class UserController {
     @DeleteMapping( "/{id}" )
     public ResponseEntity<Boolean> delete( @PathVariable String id ) {
         return ResponseEntity.ok( userService.deleteById( id ) );
+    }
+
+    @GetMapping( "/nameOrLastNameLike/{queryText}")
+    public ResponseEntity<List<UserDocument>> findByNameOrLastName( @PathVariable String queryText ) {
+        return ResponseEntity.ok( userService.findByNameOrLastName(queryText) );
+    }
+
+    @GetMapping( "/createdAfter/{startDate}")
+    public ResponseEntity<List<UserDocument>> findByCreatedAtAfter( @PathVariable String startDate ) throws ParseException {
+        SimpleDateFormat newDate = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = newDate.parse(startDate);
+        return ResponseEntity.ok( userService.findByCreatedAtAfter(date) );
     }
 
 }
